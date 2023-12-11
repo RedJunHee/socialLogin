@@ -21,6 +21,7 @@ import java.util.Map;
 public class PrincipalDetails implements UserDetails, OAuth2User {
     private User user;
     private Map<String, Object> attributes;
+    private String accessToken ;
 
     // 일반 로그인
     public PrincipalDetails(User user) {
@@ -28,9 +29,10 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
     }
 
     // Oauth 로그인
-    public PrincipalDetails(User user, Map<String, Object> attributes) {
+    public PrincipalDetails(User user, Map<String, Object> attributes, String accessToken) {
         this.user = user;
         this.attributes = attributes;
+        this.accessToken = accessToken;
     }
 
     // 해당 User의 권한을 리턴하는 곳

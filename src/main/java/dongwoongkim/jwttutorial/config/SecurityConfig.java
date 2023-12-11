@@ -55,9 +55,9 @@ public class SecurityConfig {
                 .oauth2Login()
                 .loginPage("/loginForm")
                 .userInfoEndpoint()
-                .userService(principalOauth2UserService);
-                //.and()
-                //.successHandler(customSuccessHandler()); // 구글 로그인 이후 후처리
+                .userService(principalOauth2UserService)
+                .and()
+                .successHandler(customSuccessHandler()); // 구글 로그인 이후 후처리
 
 
         return http.build();
